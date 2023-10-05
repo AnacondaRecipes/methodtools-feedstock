@@ -12,19 +12,25 @@ source:
 build:
   number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
   host:
-    - python >=3.6
+    - python
     - pip
+    - setuptools
+    - wheel
   run:
-    - python >=3.6
+    - python
     - wirerope >=0.4.7
 
 test:
   imports:
     - methodtools
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
   home: https://github.com/youknowone/methodtools
@@ -32,6 +38,7 @@ about:
   license_family: BSD
   license_file: LICENSE
   summary: Expand standard functools to methods
+  doc_url: https://methodtools.readthedocs.io/en/latest/
   dev_url: https://github.com/youknowone/methodtools
 
 extra:
