@@ -11,7 +11,6 @@ source:
 
 build:
   number: 0
-  noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
@@ -38,7 +37,9 @@ about:
   license_family: BSD
   license_file: LICENSE
   summary: Expand standard functools to methods
-  doc_url: https://methodtools.readthedocs.io/en/latest/
+  description: |
+    Expand functools features to methods, classmethods, staticmethods and even for (unofficial) hybrid methods.
+  doc_url: https://methodtools.readthedocs.io
   dev_url: https://github.com/youknowone/methodtools
 
 extra:
