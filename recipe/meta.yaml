@@ -6,8 +6,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: e213439dd64cfe60213f7015da6efe5dd4003fd89376db3baa09fe13ec2bb0ba
+  url: https://github.com/youknowone/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
+  sha256: 2339bcdc9dfe2df922cf17f7c303824e2702fac28fbec53c65102b0bd1691bb1
 
 build:
   number: 0
@@ -28,8 +28,12 @@ test:
     - methodtools
   requires:
     - pip
+    - pytest
+  source_files:
+    - tests
   commands:
     - pip check
+    - pytest tests
 
 about:
   home: https://github.com/youknowone/methodtools
